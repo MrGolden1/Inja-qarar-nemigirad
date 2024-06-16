@@ -14,6 +14,7 @@
     "workspaceContains:**/*.ts"
   ],
   "main": "./out/extension.js",
+  "icon": "images/icon.png",
   "files": [
     "out",
     "media"
