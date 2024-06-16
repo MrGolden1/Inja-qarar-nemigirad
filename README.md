@@ -2,6 +2,7 @@
 
 This Visual Studio Code extension plays a memorable sound clip ("اینجا قرار نمیگیرد") in Persian from the strategy game "Stronghold Crusader" whenever a TypeScript error (TS2322) is detected.
 
+![ss_1697adcf07a1465bf520d2d233e57bdcd18fe141 1920x1080](https://github.com/MrGolden1/Inja-qarar-nemigirad/assets/41590281/467dc4b6-8293-45a7-87fa-7d76e6eb94c8)
 
 ## Features
 
