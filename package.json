@@ -2,6 +2,7 @@
   "name": "crusader-error-sound-ts",
   "displayName": "Crusader Error Sound for TypeScript - اینجا قرار نمیگیرد",
   "description": "Enhance your TypeScript debugging with a touch of nostalgia. Plays the iconic Persian sound clip ('اینجا قرار نمیگیرد' from 'Stronghold Crusader') upon encountering a TS2322 error.",
+  "publisher": "mrgolden",
   "version": "1.0.0",
   "engines": {
     "vscode": "^1.90.0"
@@ -35,6 +36,9 @@
     "lint": "eslint src --ext ts",
     "test": "vscode-test"
   },
+  "dependencies": {
+    "sound-play": "^1.1.0"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
@@ -45,7 +49,6 @@
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.8",
     "eslint": "^8.54.0",
-    "sound-play": "^1.1.0",
     "typescript": "^5.3.2"
   }
 }
