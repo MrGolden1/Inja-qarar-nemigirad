@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Listen for changes in diagnostics
     vscode.languages.onDidChangeDiagnostics(event => {
         const editor = vscode.window.activeTextEditor;
-        if (editor && editor.document.languageId === 'typescript') {
+        if (editor && editor.document.languageId.includes('typescript')) {
             handleDiagnosticsForActiveEditor(editor.document, previousDiagnostics, context);
         }
     });
@@ -36,9 +36,11 @@ function handleDiagnosticsForActiveEditor(document: vscode.TextDocument, previou
             lineText = lineText.split("//")[0];
             // trim the line text
             lineText = lineText.trim();
-            if (!lineText.endsWith(";")) {
-                return;
-            }
+
+            // is it possible to remove this condition to support TSX?
+            // if (!lineText.endsWith(";")) {
+            //     return;
+            // }
 
             const diagnosticKey = `${document.uri.toString()}|${diagnostic.range.start.line}|${diagnostic.message}`;
             if (!previousDiagnostics.has(diagnosticKey)) {
@@ -51,11 +53,13 @@ function handleDiagnosticsForActiveEditor(document: vscode.TextDocument, previou
 					soundPlayed = true;
 
 					const selection = new vscode.Selection(diagnostic.range.start, diagnostic.range.end);
-					if (vscode.window.activeTextEditor) {
-						// If activeTextEditor is not undefined, proceed with the operations
-						vscode.window.activeTextEditor.selection = selection;
-						vscode.window.activeTextEditor.revealRange(selection);
-					}
+
+                    // is it possible to remove jumping to selection as it break DX? I think just highlighting in enough
+					// if (vscode.window.activeTextEditor) {
+					// 	// If activeTextEditor is not undefined, proceed with the operations
+					// 	vscode.window.activeTextEditor.selection = selection;
+					// 	vscode.window.activeTextEditor.revealRange(selection);
+					// }
 
 					// Create and apply decoration
 					const decorationType = vscode.window.createTextEditorDecorationType({
