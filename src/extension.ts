@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Listen for changes in diagnostics
     vscode.languages.onDidChangeDiagnostics(event => {
         const editor = vscode.window.activeTextEditor;
-        if (editor && editor.document.languageId === 'typescript') {
+        if (editor && editor.document.languageId.includes('typescript')) {
             handleDiagnosticsForActiveEditor(editor.document, previousDiagnostics, context);
         }
     });
@@ -51,11 +51,6 @@ function handleDiagnosticsForActiveEditor(document: vscode.TextDocument, previou
 					soundPlayed = true;
 
 					const selection = new vscode.Selection(diagnostic.range.start, diagnostic.range.end);
-					if (vscode.window.activeTextEditor) {
-						// If activeTextEditor is not undefined, proceed with the operations
-						vscode.window.activeTextEditor.selection = selection;
-						vscode.window.activeTextEditor.revealRange(selection);
-					}
 
 					// Create and apply decoration
 					const decorationType = vscode.window.createTextEditorDecorationType({
