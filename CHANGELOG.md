@@ -1,9 +1,7 @@
-# Change Log
+## [1.0.1] - 2024-06-21
 
-All notable changes to the "typescript-type-mismatch-sound" extension will be documented in this file.
+### Enhancements:
+- Improved diagnostics handling to support both `typescript` and `typescriptreact` files.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+### Bug Fixes:
+- Removed automatic jumping to diagnostic selections to enhance developer experience.
